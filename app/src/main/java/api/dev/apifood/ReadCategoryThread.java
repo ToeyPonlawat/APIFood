@@ -5,10 +5,13 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
+
+import org.json.JSONObject;
 
 public class ReadCategoryThread extends AsyncTask<String,Void,String> {
 
@@ -23,9 +26,18 @@ public class ReadCategoryThread extends AsyncTask<String,Void,String> {
 
         try {
             OkHttpClient okHttpClient = new OkHttpClient();
-            RequestBody requestBody = new FormEncodingBuilder()
-                    .add("ptPsgName",strings[0])
-                    .build();
+
+            MediaType jsonType = MediaType.parse("application/json; charset=utf-8");
+
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("ptPsgName", strings[0]);
+
+            String jsonString = "{\n" +
+                    "\t\"ptblCode\":\"\"\n" +
+                    "}";
+
+            RequestBody requestBody = RequestBody.create(jsonType,jsonString);
+
             Request.Builder builder = new Request.Builder();
             Request request = builder.url(strings[1]).post(requestBody).build();
             Response response = okHttpClient.newCall(request).execute();
