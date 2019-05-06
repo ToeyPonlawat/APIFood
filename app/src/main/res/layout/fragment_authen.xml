@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AuthenFragment">
+
+    <!--Wallpaper-->
+    <ImageView
+        android:src="@drawable/wallpaper"
+        android:scaleType="fitXY"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--Content-->
+    <LinearLayout
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--Logo-->
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--User-->
+        <EditText
+            android:textSize="@dimen/h3"
+            android:background="@drawable/edt_user"
+            android:hint="User : "
+            android:inputType="text"
+            android:id="@+id/edtUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!--Password-->
+        <EditText
+            android:textSize="@dimen/h3"
+            android:background="@drawable/edt_password"
+            android:id="@+id/edtPassword"
+            android:hint="Password : "
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!--Login-->
+        <Button
+            android:background="@drawable/btn_login"
+            android:id="@+id/btnLogin"
+            android:text="Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</RelativeLayout>
